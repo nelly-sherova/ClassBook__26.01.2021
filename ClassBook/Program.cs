@@ -16,8 +16,11 @@ namespace ClassBook
         }
         public void ShowBook()
         {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             author.Show();
+            Console.ForegroundColor = ConsoleColor.Blue;
             title.Show();
+            Console.ForegroundColor = ConsoleColor.Green;
             content.Show();
         }
     }
@@ -49,7 +52,17 @@ namespace ClassBook
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Вас приветствует класс Book!");
+            string[] author = {"Марк Твен", "Джордж Оруелл", "Анна Тод", "Роберт Кийосаки"};
+            string[] title = {"Том Сойер", "1984", "После", "Богатый папа, Бедный папа"};
+            string[] content = {"Художественная литература", "Антиутопия", "Роман", "Бизнес и финансы"};
+            for (int  i = 0; i < author.Length; i++)
+            {
+                Console.WriteLine($"Книга №{i+1}");
+                Book book = new Book(author[i], title[i], content[i]);
+                book.ShowBook();
+                Console.ForegroundColor = ConsoleColor.White;
+            }
         }
     }
 }
